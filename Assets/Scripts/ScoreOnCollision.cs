@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ScoreOnCollision : MonoBehaviour
 {
-    public int score = 0;
+   //public int score = 0;
    
    
     private void OnTriggerEnter2D(Collider2D other)
@@ -12,8 +12,8 @@ public class ScoreOnCollision : MonoBehaviour
         if (other.tag == "Star") {
             Debug.Log("star collected");
             Destroy(other.gameObject);
-            score++;
-            Debug.Log($"Plyer Score:{score}");
-        }        
+            textscoreshow.totscore++;
+            //Debug.Log($"Plyer Score:{textscoreshow.totscore}");
+        }
     }
 }
