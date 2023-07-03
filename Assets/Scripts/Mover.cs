@@ -34,6 +34,10 @@ public class Mover : MonoBehaviour
             i += 1;
             if (i == 26)
             {
+                SceneManager.LoadScene("Level 2");
+            }
+            if (i == 52)
+            {
                 SceneManager.LoadScene("gameover");
             }
         }

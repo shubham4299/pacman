@@ -15,5 +15,6 @@ public class ScoreOnCollision : MonoBehaviour
             textscoreshow.totscore++;
             //Debug.Log($"Plyer Score:{textscoreshow.totscore}");
         }
+        
     }
 }
