@@ -12,8 +12,9 @@ public class ScoreOnCollision : MonoBehaviour
         if (other.tag == "Star") {
             Debug.Log("star collected");
             Destroy(other.gameObject);
-            textscoreshow.totscore++;
+            //textscoreshow.totscore++;
             //Debug.Log($"Plyer Score:{textscoreshow.totscore}");
         }
+        
     }
 }

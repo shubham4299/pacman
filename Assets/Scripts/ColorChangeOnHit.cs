@@ -12,6 +12,9 @@ public class ColorChangeOnHit : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             GetComponent<SpriteRenderer>().color = Color.cyan;
+           
+                textscoreshow.totscore -= textscoreshow.totscore;//decrement score on collision with an obstacle
+            
             //Invoke("ReloadScene", loadDelay);
         }
 

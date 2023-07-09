@@ -5,19 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class Mover : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 1f;
-    private int i = 0;
-    void Start()
+    [SerializeField] private float moveSpeed = 1f;
+    
+    //private int i;
+    /*void Start()
     {
         
-    }
+    }*/
 
     // Update is called once per frame
     void Update()
     {
         MovePlayer();
-       
-                
+        //i = textscoreshow.totscore;
+
+
     }
     public void MovePlayer()
     {
@@ -31,11 +33,16 @@ public class Mover : MonoBehaviour
     {
         if(collision.gameObject.tag == "Star")
         {
-            i += 1;
-            if (i == 26)
+            textscoreshow.totscore += 1;
+            if (textscoreshow.totscore == 52)
             {
                 SceneManager.LoadScene("gameover");
             }
+            if (textscoreshow.totscore == 26)
+            {
+                SceneManager.LoadScene("Level_2");
+            }
+
         }
     }
 }
