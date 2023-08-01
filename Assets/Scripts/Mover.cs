@@ -5,18 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class Mover : MonoBehaviour
 {
+    Animator pacAnimator;
     [SerializeField] private float moveSpeed = 1f;
     
     //private int i;
-    /*void Start()
+    void Start()
     {
-        
-    }*/
-
-    // Update is called once per frame
+        pacAnimator = GetComponent<Animator>();
+    }
     void Update()
     {
-        MovePlayer();
+        //MovePlayer();
+        MovePlayerAltr();
         //i = textscoreshow.totscore;
 
 
@@ -29,12 +29,12 @@ public class Mover : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if(collision.gameObject.tag == "Star")
+        if(other.tag == "Star")
         {
             textscoreshow.totscore += 1;
-            if (textscoreshow.totscore == 52)
+            if (textscoreshow.totscore ==52)
             {
                 SceneManager.LoadScene("gameover");
             }
@@ -43,6 +43,38 @@ public class Mover : MonoBehaviour
                 SceneManager.LoadScene("Level_2");
             }
 
+        }
+    }
+
+    void MovePlayerAltr()
+    {
+        if(Input.GetKey(KeyCode.W)) 
+        {
+            pacAnimator.SetBool("isTurn", false);
+            transform.localScale = new Vector2(0.13f, 0.13f);
+            float yVal=(Input.GetAxis("Vertical")*moveSpeed*Time.deltaTime);
+            transform.Translate(0, yVal, 0);
+        }
+        else if(Input.GetKey(KeyCode.S))
+        {
+            pacAnimator.SetBool("isTurn", false);
+            transform.localScale = new Vector2(0.13f, -0.13f);
+            float yVal = (Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime);
+            transform.Translate(0, yVal, 0);
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            pacAnimator.SetBool("isTurn", true);
+            transform.localScale = new Vector2(-0.13f, 0.13f);
+            float xVal = (Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime);
+            transform.Translate(xVal, 0, 0);
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            pacAnimator.SetBool("isTurn", true);
+            transform.localScale = new Vector2(0.13f, -0.13f);
+            float xVal = (Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime);
+            transform.Translate(xVal,0, 0);
         }
     }
 }

@@ -22,6 +22,6 @@ public class textscoreshow : MonoBehaviour
         {
             totscore += 1;
         }
-        scorecard.text =  ("Score : " + totscore);
+        scorecard.text = ($"Score :{totscore}");
     }
 }
