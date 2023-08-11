@@ -18,16 +18,13 @@ public class Mover : MonoBehaviour
         //MovePlayer();
         MovePlayerAltr();
         //i = textscoreshow.totscore;
-
-
     }
-    public void MovePlayer()
-    {
-        float xVal = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
-        float yVal = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
-        transform.Translate(xVal, yVal, 0);
-
-    }
+    //public void MovePlayer()
+    //{
+    //    float xVal = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
+    //    float yVal = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
+    //    transform.Translate(xVal, yVal, 0);
+    //}
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -42,7 +39,6 @@ public class Mover : MonoBehaviour
             {
                 SceneManager.LoadScene("Level_2");
             }
-
         }
     }
 
